@@ -4,7 +4,7 @@ package game.data;
 
 public class GameWinner {
 
-    static boolean checkWinner(char[][] board, char player) {
+    public static boolean checkWinner(char[][] board, char player) {
         // Проверка строк
         for (int i = 0; i < 3; i++) {
             if (board[i][0] == player && board[i][1] == player && board[i][2] == player) {
@@ -31,6 +31,18 @@ public class GameWinner {
         }
         return false;
     }
+
+    public static boolean checkDraw(char[][] board) {
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                if (board[i][j] == ' ') {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
 }
 
 

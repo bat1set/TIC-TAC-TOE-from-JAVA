@@ -1,13 +1,25 @@
 package game;
 
-import game.data.AdditionalFunctions;
 
+import game.data.AdditionalFunctions;
 import game.data.StartGame;
+import game.GUI.*;
+
 class Main {
+
+
     public static void main(String[] args) {
-        StartGame game_start = new StartGame();
         AdditionalFunctions AD = new AdditionalFunctions();
-        AD.ClearConsole();
-        game_start.Start();
+
+        if (!AD.GetValueFromConfig("GUI")) {
+            StartGame GameStart = new StartGame();
+
+            AD.ClearConsole();
+            GameStart.Start();
+        } else {
+            new StartGUI();
+        }
+
     }
+
 }
